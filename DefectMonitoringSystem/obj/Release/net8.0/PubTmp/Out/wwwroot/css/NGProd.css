@@ -1,0 +1,73 @@
+﻿body {
+    margin: 1px;
+}
+
+.header-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0f2b3e;
+    color: white;
+    font-family: Arial;
+}
+
+    .header-table td {
+        padding: 10px;
+        vertical-align: middle;
+        border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+/* Label column */
+.cell-label {
+    width: 140px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Input section */
+.cell-input input {
+    padding: 6px;
+    width: 200px;
+}
+
+/* Buttons alignment */
+.cell-btn {
+    text-align: center;
+}
+
+/* BUTTON STYLES (isolated) */
+.btn-search {
+    background: #1f6feb;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.btn-update {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.btn-upload {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.btn-export {
+    background: #6f42c1;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.header-table button:hover {
+    opacity: 0.85;
+}

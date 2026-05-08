@@ -1,0 +1,217 @@
+﻿body {
+    margin: 0;
+    background: #081b29;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.inner-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header-table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #0f2b3e;
+    color: white;
+    font-family: Arial;
+}
+
+.header-table td {
+    padding: 10px;
+    vertical-align: middle;
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Label column */
+.cell-label {
+    width: 140px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Input section */
+.cell-input input {
+    padding: 6px;
+    width: 200px;
+}
+
+/* Buttons alignment */
+.cell-btn {
+    text-align: center;
+}
+
+/* BUTTON STYLES (isolated) */
+.btn-search {
+    background: white;
+    color: black;
+    border: 2px solid black;
+    padding: 6px 20px;
+    cursor: pointer;
+    margin-left: auto;
+    border-radius: 6px;
+    /* Smooth transition */
+    transition: all 0.3s ease;
+}
+
+    /* Hover effect */
+    .btn-search:hover {
+        background: #e50c0c;
+        color: white;
+        border-color: black;
+    }
+
+    /* Optional: active click effect */
+    .btn-search:active {
+        transform: scale(0.96);
+    }
+
+.btn-update {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.btn-upload {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.btn-export {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.header-table button:hover {
+    opacity: 0.85;
+}
+.status-table {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+    .status-table td {
+        width: 33%;
+        text-align: center;
+    }
+
+.btn-status {
+    width: 95%;
+    padding: 12px;
+    font-weight: bold;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    .btn-status:hover {
+        background-color: #222;
+    }
+
+.dashboard-panel {
+    width: 100%;
+    margin: 0px 0;
+    background: #0b6fb8;
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+}
+
+/* TABS */
+.dashboard-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+    .dashboard-tabs .tab {
+        padding: 8px 12px;
+        background: #0a4f86;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 3px;
+    }
+
+        .dashboard-tabs .tab.active {
+            background: #ff9800;
+            color: black;
+        }
+
+/* FILTER BOX */
+.filter-box {
+    background: #0d82d1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.filter-title {
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+/* ROWS */
+.filter-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+    .filter-row select,
+    .filter-row input {
+        padding: 6px;
+        border: none;
+        border-radius: 3px;
+    }
+
+/* SEARCH BUTTON */
+
+.dashboard-tabs .tab {
+    padding: 8px 12px;
+    background: #0a4f86;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: 0.2s;
+}
+
+    .dashboard-tabs .tab.active {
+        background: #ff9800;
+        color: black;
+    }
+.dashboard-content {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    min-height: 150px;
+}

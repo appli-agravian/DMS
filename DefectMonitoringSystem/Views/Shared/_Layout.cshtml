@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Defect Monitoring System</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Sidebar.css" />
+    <link rel="stylesheet" href="~/css/Navbar.css" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="nav-left">
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <a asp-controller="Home" asp-action="Index" class="nav-title">
+                DEFECT MONITORING SYSTEM
+            </a>
+        </div>
+        <div class="nav-right">
+            <span>Welcome, @(ViewBag.CurrentUser?.FullName ?? "User")</span>
+            <a asp-controller="Account" asp-action="Logout">Logout</a>
+        </div>
+    </div>
+
+    <!-- BACKDROP -->
+    <div class="offcanvas-backdrop" id="offcanvasBackdrop"></div>
+
+    <!-- LOADER -->
+    <div id="loader" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(255,255,255,0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;">
+        <div id="lottieLoader" style="width:150px;height:150px;"></div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="~/images/Designer (1).png" alt="User" class="sidebar-user-img" />
+        </div>
+        <div class="sidebar-content">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+
+                <li class="menu-item"> 
+                     <a href="#" class="submenu-toggle">In-Line NG Machine Database</a> 
+                     <ul class="submenu">
+                        <li><a asp-controller="InLineNgMachine" asp-action="Database">Database</a></li>
+                        <li><a asp-controller="inlinengmachine" asp-action="Graph">Graph</a></li>
+                        <li><a asp-controller="inlinengmachine" asp-action="OverallGraph">Overall Graph</a></li>
+                     </ul> 
+                 </li>
+
+                @* <li><a asp-controller="InLineNgMachine" asp-action="Overallgraph">In-Line NG Machine Database</a></li> *@
+
+                <li><a asp-controller="EndorsementEmail" asp-action="Email">Endorsement Email</a></li>
+
+                <li class="menu-item">
+                    <a href="#" class="submenu-toggle">NG Main PCB Database</a>
+                    <ul class="submenu">
+                        <li><a asp-controller="NGMainPCBDatabase" asp-action="NGMain">Main Monitoring</a></li>
+                        <li><a asp-controller="NGMainPCBDatabase" asp-action="NGGraph">Graph</a></li>
+                        <li><a asp-controller="NGMainPCBDatabase" asp-action="NGProd">Prod Input QTY Data</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#" class="submenu-toggle">User Management</a>
+                    <ul class="submenu">
+                        <li><a asp-controller="UserManagement" asp-action="Access">Users</a></li>
+                        <li><a asp-controller="UserManagement" asp-action="Reference">Reference</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <p><strong>@(ViewBag.CurrentUser?.FullName ?? "")</strong></p>
+            <p>@(ViewBag.CurrentUser?.Section ?? "")</p>
+            <p>@(ViewBag.CurrentUser?.Position ?? "")</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="content">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Layout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

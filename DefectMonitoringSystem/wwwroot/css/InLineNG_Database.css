@@ -1,0 +1,153 @@
+﻿TopButton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #3d405b;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    padding: 16px;
+    width: 130px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+    button span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -15px;
+        transition: 0.5s;
+    }
+
+button:hover span {
+    padding-right: 15px;
+}
+
+    button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+.custom-container {
+    background-color: #17263B;
+    max-width: 1810px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+    .custom-container p {
+        margin: 0;
+    }
+
+.table-wrapper {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* PAGE CONTAINER */
+.page-container {
+    padding: 20px;
+}
+
+/* TABLE HEADER */
+#userTable thead th {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #17263B !important;
+    color: white;
+    white-space: nowrap;
+}
+
+/* TABLE BODY */
+#userTable tbody td {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+select.form-select-sm {
+    min-width: 120px;
+}
+
+/* BASE BUTTON STYLE */
+.dt-button {
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 14px !important;
+    margin-right: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease-in-out;
+}
+
+    .dt-button:hover {
+        transform: translateY(-1px);
+        opacity: 0.9;
+    }
+
+/* EXCEL BUTTON */
+.btn-excel {
+    background-color: #28a745 !important;
+}
+
+/* ADD BUTTON */
+.btn-add {
+    background-color: #17263B !important;
+}
+
+/* EDIT BUTTON */
+.btn-edit {
+    background-color: #ffc107 !important;
+    color: black !important;
+}
+
+/* DELETE BUTTON */
+.btn-delete {
+    background-color: #dc3545 !important;
+}
+
+/* DATATABLES LAYOUT */
+.dataTables_wrapper .dt-buttons,
+.dataTables_wrapper .dataTables_filter {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dt-buttons,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 10px;
+}
+
+.dataTables_wrapper .row:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* SCROLL FIX for scrollX inside rounded container */
+.dataTables_scrollHead {
+    background-color: #17263B !important;
+    border-radius: 8px 8px 0 0;
+}
+
+.dataTables_scrollBody {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    border-radius: 0 0 8px 8px;
+}

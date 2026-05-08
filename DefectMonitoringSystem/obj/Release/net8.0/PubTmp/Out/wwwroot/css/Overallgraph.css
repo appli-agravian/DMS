@@ -1,0 +1,511 @@
+﻿/* ==========================================
+   1. GLOBAL & RESET
+   ========================================== */
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #cfd3d8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Common form element styling used across the app and modals */
+input, select, textarea {
+    height: 30px;
+    padding: 5px 8px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #000000;
+}
+
+/* ==========================================
+   2. LAYOUT CONTAINERS
+   ========================================== */
+.container-fluid,
+.page-container,
+.section-container,
+.content-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+}
+
+.page-container {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0px 0px;
+}
+
+.main-content {
+    min-height: 100vh;
+    padding: 0px 0;
+    display: block;
+}
+
+.section-container {
+    width: 100%;
+    margin-top: 15px;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0;
+
+}
+
+#graphSection {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#overallSection {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+    /* Specific styling for Overall Graph Card */
+    #overallSection .card {
+        border: none;
+        border-top: 4px solid #2c7be5;
+    }
+
+/* ==========================================
+   3. NAVIGATION (TOPBAR & ACTION BAR)
+   ========================================== */
+.topbar, .action-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.topbar {
+    background: black;
+}
+
+.action-bar {
+    background: #365f99;
+}
+
+.topbar-tabs, .status-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.topbar-info {
+    background: #ffffff;
+    padding: 5px 15px;
+    font-size: 13px;
+    max-width: 420px;
+    border-radius: 6px;
+}
+
+/* ==========================================
+   4. BUTTONS & UI ELEMENTS
+   ========================================== */
+.tab, .status-btn, .export-btn, .btn-save, .btn-cancel, .btn-update {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+
+.tab {
+    background: #3b6ea5;
+    color: white;
+    padding: 8px 18px;
+}
+
+    .tab:hover, .status-btn:hover, .btn-update:hover {
+        background: #5fa0dc;
+        transform: translateY(-1px);
+    }
+
+    /* Tab Active State */
+    .tab.active {
+        background: #ffffff !important;
+        color: #3b6ea5 !important;
+        border: 1px solid #3b6ea5;
+    }
+
+.status-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Status Button Variants */
+.status-machine {
+    background: #f2b233;
+    color: #1a1a1a;
+}
+
+.status-finish {
+    background: #47b72a;
+    color: white;
+}
+
+.status-return {
+    background: #7e6bc4;
+    color: white;
+}
+
+.status-subparts {
+    background: #4f93c4;
+    color: white;
+}
+
+.export-btn {
+    background: #e2e8f0;
+    color: #1e293b;
+    padding: 8px 16px;
+}
+
+.btn-update {
+    background: #2c7be5;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* ==========================================
+   5. TABLES & GRIDS
+   ========================================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 10px 15px;
+    align-items: center;
+}
+
+.custom-thead th {
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Column Colors */
+.col-yellow {
+    background-color: #ffcc00 !important;
+}
+
+.col-red {
+    background-color: #b32400 !important;
+    color: white !important;
+}
+
+.col-green {
+    background-color: #669900 !important;
+    color: white !important;
+}
+
+/* Added Blue and Pink Colors */
+.col-blue {
+    background-color: #2c7be5 !important;
+    color: white !important;
+}
+
+.col-pink {
+    background-color: #ff66b2 !important;
+    color: white !important;
+}
+
+/* ==========================================
+   6. MODAL SYSTEM
+   ========================================== */
+/* Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+    /* Triggered via JS */
+    .modal-overlay.active {
+        display: flex;
+    }
+
+/* Modal Window */
+.modal-content {
+    width: 450px;
+    max-width: 90%;
+    background: #1e1e1e;
+    border: 1px solid #555;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    font-size: 13px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+    .modal-content.small {
+        width: 350px;
+    }
+
+/* Modal Header & Themes */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-header.orange {
+    background: #ff8800;
+}
+
+.modal-header.black {
+    background: #111;
+}
+
+.modal-header.purple {
+    background: #6a5acd;
+}
+
+.modal-header.blue {
+    background: #2c7be5;
+}
+
+/* Modal Elements */
+.modal-body {
+    width: 100%; /* Fixed from 810px to prevent overflow */
+    padding: 20px; /* Fixed from 80px to make layout usable */
+    background: #2b2b2b;
+    color: white;
+    overflow-y: auto;
+}
+
+.centered {
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        width: 140px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        flex: 1; /* Makes inputs fill the rest of the modal width */
+    }
+
+.divider {
+    margin: 10px 0;
+    padding: 5px;
+    background: #000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.modal-footer {
+    padding-top: 15px;
+    margin-top: 10px;
+    border-top: 1px solid #444;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.btn-save {
+    background: green;
+    color: white;
+    padding: 6px 12px;
+}
+
+.btn-cancel {
+    background: gray;
+    color: white;
+    padding: 6px 12px;
+}
+
+/* Themes */
+.dark-theme {
+    background: #111;
+}
+
+.blue-theme {
+    background: #1c2f4a;
+}
+/* Layout & Overlay */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+    .modal-overlay.active {
+        display: flex;
+    }
+
+.modal-content-custom {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #000;
+}
+
+/* Modal 2: Return to Prod (Dark Theme) */
+.return-prod-modal {
+    width: 500px;
+    background: #222;
+    color: #ffffff;
+    font-weight: 500;
+    border: 2px solid #555;
+}
+
+.purple-header {
+    background: #6f42c1;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dark-body {
+    background-color: #1a1a1a; /* Dark background */
+    padding: 20px;
+}
+
+.info-box {
+    border: 2px solid #ffffff; /* The white border box from your image */
+    padding: 15px;
+    margin-top: 10px;
+}
+
+    .info-box input {
+        background: #ffffff;
+        border: 1px solid #000;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+.update-btn {
+    background: #eee;
+    border: none;
+    padding: 2px 10px;
+    font-weight: bold;
+}
+.col-6 {
+    color: #ffffff;
+}
+.note
+{
+    color: #ffffff;
+}
+.input-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+    .input-row label {
+        color: #ffffff;
+        width: 140px;
+        font-size: 0.85rem;
+    }
+
+    .input-row input {
+        background: white;
+        border: 1px solid #999;
+        flex-grow: 1;
+        height: 25px;
+        color: black;
+    }
+
+/* Modal 4: Sub-Parts (Light Blue Theme) */
+.sub-parts-modal {
+    width: 600px;
+    background: #cfe2ff;
+    color: #ffffff;
+    border: 2px solid #000;
+}
+
+.blue-header {
+    background: #3fa9f5;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.details-section {
+    border: 1px solid #888;
+    margin-top: 10px;
+    background: #e9ecef;
+}
+
+.section-title {
+    background: #adb5bd;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffffff;
+    border-bottom: 1px solid #888;
+}
+
+    .section-title.black-bg {
+        background: #000;
+        color: white;
+        margin-top: 10px;
+    }
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 0.75rem;
+    padding: 5px;
+}
+
+.modal-footer-custom {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    border-top: 1px solid #888;
+    padding-top: 5px;
+}
+

@@ -1,0 +1,80 @@
+[
+  {
+    "ContainingType": "UserManagementApiController",
+    "Method": "AddUser",
+    "RelativePath": "api/UserManagementApi/add-user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "DefectMonitoringSystem.Dtos.AddUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserManagementApiController",
+    "Method": "LookupEmployee",
+    "RelativePath": "api/UserManagementApi/lookup/{employeeNo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeNo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserManagementApiController",
+    "Method": "GetModules",
+    "RelativePath": "api/UserManagementApi/modules",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserManagementApiController",
+    "Method": "GetRoles",
+    "RelativePath": "api/UserManagementApi/roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserManagementApiController",
+    "Method": "UpdatePermissions",
+    "RelativePath": "api/UserManagementApi/update-permissions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "DefectMonitoringSystem.Dtos.UpdatePermissionsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserManagementApiController",
+    "Method": "GetUsersWithPermissions",
+    "RelativePath": "api/UserManagementApi/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

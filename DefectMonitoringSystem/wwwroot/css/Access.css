@@ -1,0 +1,98 @@
+﻿
+.custom-container {
+    padding: 10px;
+    background-color: #17263B;
+    margin: 0;
+    max-width: 1825px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+    .custom-container p {
+        margin: 0;
+    }
+
+.table-wrapper {
+    background: #ffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#userTable thead th {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #17263B !important;
+    color: white;
+}
+
+#userTable tbody td {
+    vertical-align: middle;
+}
+
+select.form-select-sm {
+    min-width: 120px;
+}
+
+/* BASE BUTTON STYLE (IMPORTANT) */
+.dt-button {
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 14px !important;
+    margin-right: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: 0.2s ease-in-out;
+}
+
+/* HOVER EFFECT */
+.dt-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+/* EXCEL BUTTON */
+.btn-excel {
+    background-color: #28a745 !important;
+}
+
+/* ADD BUTTON */
+.
+{
+    background-color: #17263B !important;
+}
+
+/* EDIT BUTTON */
+.btn-edit {
+    background-color: #ffc107 !important;
+    color: black !important;
+}
+
+/* DELETE BUTTON */
+.btn-delete {
+    background-color: #dc3545 !important;
+}
+
+/* Top container */
+.dataTables_wrapper .dt-buttons,
+.dataTables_wrapper .dataTables_filter {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Wrap both in flex */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dt-buttons,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 10px;
+}
+
+.dataTables_wrapper .row:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

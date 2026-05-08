@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\DefectMonitoringSystem",
+    "\\DefectMonitoringSystem\\bin",
+    "\\DefectMonitoringSystem\\Controllers",
+    "\\DefectMonitoringSystem\\Views",
+    "\\DefectMonitoringSystem\\Views\\Shared",
+    "\\DefectMonitoringSystem\\wwwroot",
+    "\\DefectMonitoringSystem\\wwwroot\\css",
+    "\\DMSystemWinform",
+    "\\DMS_API"
+  ],
+  "SelectedNode": "\\DMSystemWinform\\Motherform.cs",
+  "PreviewInSolutionExplorer": false
+}

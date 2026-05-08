@@ -1,0 +1,172 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/NGGraph.css" />
+
+<div class="page-wrapper">
+
+<table class="header-table">
+
+    <tr>
+
+        <!-- MPCB SERIAL -->
+        <td class="cell-label">MPCB SERIAL:</td>
+
+        <td class="cell-input">
+            <form method="post" asp-action="SearchMPCBSerial">
+                <input type="text" name="mpcbSerial" placeholder="Enter Serial..." />
+                <button type="submit" class="btn-search">SEARCH</button>
+            </form>
+        </td>
+
+        <!-- UPDATE MCB DATA -->
+        <td class="cell-btn">
+            <form method="post" asp-action="UpdateMCBData">
+                <button type="submit" class="btn-update">UPDATE MCB DATA</button>
+            </form>
+        </td>
+
+        <!-- UPLOAD PROD INPUT QTY -->
+        <td class="cell-btn">
+            <form method="post" asp-action="UploadProdInputQty">
+                <button type="submit" class="btn-upload">UPLOAD PROD INPUT QTY</button>
+            </form>
+        </td>
+
+        <!-- EXPORT -->
+        <td class="cell-btn">
+            <form method="post" asp-action="ExportData">
+                <button type="submit" class="btn-export">EXPORT</button>
+            </form>
+        </td>
+
+    </tr>
+
+</table>
+
+<div class="dashboard-panel">
+
+            <div class="inner-content">
+
+    <!-- TAB HEADER (VISUAL ONLY OR CAN BE MADE CLICKABLE LATER) -->
+            <div class="dashboard-tabs">
+                <div class="tab active" onclick="loadTab('overall')">OVERALL MPCB STATUS</div>
+                <div class="tab" onclick="loadTab('analyze')">HARD TO ANALYZE</div>
+                <div class="tab" onclick="loadTab('power')">NO POWER</div>
+            </div>
+
+    <!-- FILTER BOX -->
+    <div class="filter-box">
+        <div class="filter-title">Filter Conditions</div>
+
+        <!-- TIME FILTER -->
+        <div class="filter-row">
+            <label><b>By Time:</b></label>
+            <label><input type="radio" name="time" /> Shift</label>
+            <label><input type="radio" name="time" /> Week</label>
+            <label><input type="radio" name="time" /> Month</label>
+            <label><input type="radio" name="time" /> Year</label>
+        </div>
+
+                <!-- DROPDOWNS -->
+                <div class="filter-row">
+
+                    <div class="filter-group">
+                        <label>Bare Board Type</label>
+                        <select>
+                            <option>Select Type</option>
+                            <option>Type 1</option>
+                            <option>Type 2</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Model Name</label>
+                        <select>
+                            <option>Select Model</option>
+                            <option>Model A</option>
+                            <option>Model B</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Line</label>
+                        <select>
+                            <option>Select Line</option>
+                            <option>Line 1</option>
+                            <option>Line 2</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Production Process</label>
+                        <select>
+                            <option>Select Process</option>
+                            <option>Process 1</option>
+                            <option>Process 2</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>MPCB Status</label>
+                        <select>
+                            <option>Select Status</option>
+                            <option>OK</option>
+                            <option>NG</option>
+                        </select>
+                    </div>
+
+                </div>
+
+        <div class="filter-row">
+
+            <label>Start Date:</label>
+            <input type="date" name="startDate" />
+
+            <label>End Date:</label>
+            <input type="date" name="endDate" />
+
+            <button class="btn-search">SEARCH</button>
+
+        </div>
+
+    </div>
+
+</div>
+    </div>
+</div>
+<script>
+    function loadTab(tab) {
+
+        let tabs = document.querySelectorAll(".dashboard-tabs .tab");
+
+        // reset active class
+        tabs.forEach(t => t.classList.remove("active"));
+
+        if (tab === "overall") {
+            tabs[0].classList.add("active");
+            content.innerHTML = `
+                <h3>Overall MPCB Status</h3>
+                <p>Showing overall production status data...</p>
+            `;
+        }
+
+        if (tab === "analyze") {
+            tabs[1].classList.add("active");
+            content.innerHTML = `
+                <h3>Hard To Analyze</h3>
+                <p>Showing analysis issues data...</p>
+            `;
+        }
+
+        if (tab === "power") {
+            tabs[2].classList.add("active");
+            content.innerHTML = `
+                <h3>No Power Status</h3>
+                <p>Showing power failure records...</p>
+            `;
+        }
+    }
+</script>

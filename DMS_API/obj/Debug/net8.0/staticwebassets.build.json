@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "eAz95uYJ8tzIZ+s5GmNwyOjL4vD8B2buRzSv3bf3SYc=",
+  "Source": "DMS_API",
+  "BasePath": "_content/DMS_API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

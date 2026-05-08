@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Database";
+}
+
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="~/css/InLineNG_Database.css" />
+
+<div class="main-content">
+
+    <div class="page-container">
+
+        <div class="table-wrapper">
+            <div class="table-responsive">
+                <table id="userTable" class="table table-striped table-bordered align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th rowspan="2">#</th>
+                            <th rowspan="2">PRT PIC</th>
+                            <th rowspan="2">Line</th>
+                            <th rowspan="2">Process</th>
+                            <th rowspan="2">Machine Serial</th>
+                            <th rowspan="2">Model Code</th>
+                            <th rowspan="2">Model Name</th>
+                            <th rowspan="2">Phenomenon</th>
+                            <th rowspan="2">Production Date</th>
+                            <th rowspan="2">Date Received</th>
+                            <th rowspan="2">Time Received</th>
+                            <th rowspan="2"># Days Delay</th>
+                            <th rowspan="2">Delay/Priority</th>
+                            <th colspan="6" class="text-center">Machine Analysis Complete</th>
+                            <th rowspan="2">Series</th>
+                            <th rowspan="2">Defect Field</th>
+                            <th rowspan="2">Defect Category</th>
+                            <th rowspan="2">Lot/Serial No.</th>
+                            <th rowspan="2">PartCode</th>
+                            <th rowspan="2">Cavity Number</th>
+                            <th rowspan="2">Received By</th>
+                            <th rowspan="2">Returned By</th>
+                            <th rowspan="2">Board Type</th>
+                            <th rowspan="2">PCB Defect Location</th>
+                            <th rowspan="2">Sub-Category</th>
+                            <th rowspan="2">IN</th>
+                            <th rowspan="2">Alarm</th>
+                            <th rowspan="2">Linestop Related</th>
+                            <th rowspan="2">Analysis Time</th>
+                            <th rowspan="2">Analysis Time Category</th>
+                            <th rowspan="2">Remarks</th>
+                            <th colspan="6" class="text-center">Sub Unit Assembly Progress</th>
+                            <th rowspan="2">Machine returned to Prod</th>
+                            <th rowspan="2">Remarks</th>
+                            <th rowspan="2">New or Existing</th>
+                            <th rowspan="2">NS/DS</th>
+                            <th rowspan="2">Call out Phenomenon</th>
+                            <th rowspan="2">Components/Parts</th>
+                            <th rowspan="2">Mechanism Group</th>
+                            <th rowspan="2">Mechanism</th>
+                            <th rowspan="2">Connectors</th>
+                            <th rowspan="2">Defect Category</th>
+                        </tr>
+                        <tr>
+                            <!-- Machine Analysis sub-headers (6 cols) -->
+                            <th>Analyzed By</th>
+                            <th>Date Finish Analysis</th>
+                            <th>Time Finish Analysis</th>
+                            <th>Cause</th>
+                            <th>Audit Findings</th>
+                            <th>Finish Analysis Date &amp; Time</th>
+                            <!-- Sub Unit sub-headers (6 cols) -->
+                            <th>Analyzed By</th>
+                            <th>Sub Unit Assy/Sub Part</th>
+                            <th>Date Finish Analysis</th>
+                            <th>Time Finish Analysis</th>
+                            <th>Cause</th>
+                            <th>Finish Analysis Date &amp; Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="header-container">
+
+            @* <div class="topbar"> *@
+            @*     <div class="topbar-tabs"> *@
+            @*         <button type="TopButton" class="tab" id="Button"> *@
+            @*             <span>MINI DB</span> *@
+            @*         </button> *@
+
+            @*         <button type="TopButton" id="graph_btn" class="tab"> *@
+            @*             <span>GRAPH</span> *@
+            @*         </button> *@
+
+            @*         <button type="TopButton" id="overallgraph_btn" class="tab"> *@
+            @*             <span>OVERALLGRAPH</span> *@
+            @*         </button> *@
+            @*     </div> *@
+            @* </div> *@
+
+            @* <div class="topbar"> *@
+            @*     <div class="topbar-tabs"> *@
+            @*         <button type="TopButton" status-machine" onclick="openModal('modalMachineIn')">MACHINE IN</button> *@
+
+            @*         <button type="TopButton" status-finish" onclick="openModal('modalSelect')">FINISH ANALYSIS</button> *@
+
+            @*         <button type="TopButton" status-return" onclick="openModal('modalReturnProd')">RETURNED TO PROD</button> *@
+
+            @*         <button type="TopButton" status-subparts" onclick="openModal('modalSubParts')">SUB PARTS ANALYSIS COMPLETED</button> *@
+            @*     </div> *@
+            @*     <button class="export-btn">EXPORT</button> *@
+            @* </div> *@
+
+        @* <div class="content-container"> *@
+        @*     <div id="graphSection" class="section-container"> *@
+        @*         <canvas id="myChart"></canvas> *@
+        @*     </div> *@
+
+        @*     <div id="overallSection" class="section-container" style="display:none;"> *@
+        @*         <div class="card shadow-sm p-3"> *@
+        @*             <h5 class="text-dark">Overall Defect Distribution</h5> *@
+        @*             <div style="height: 400px;"> *@
+        @*                 <canvas id="overallChart"></canvas> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*     </div> *@
+
+            
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+    <script src="~/js/InLineNG_Database.js"></script>
+}

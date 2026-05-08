@@ -1,0 +1,56 @@
+
+.main-content {
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: flex-start; /* keep content at top */
+    width: 100%;
+    background: #2A528D;
+}
+
+.content{
+    width: 100%;
+    max-width:100%;
+}
+
+
+body {
+    margin: 10px;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: #2A528D;
+}
+
+.wrapper {
+    display: flex;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #14263B;
+    color: white;
+    padding: 10px 20px;
+    border-bottom: 2px solid #14263B;
+}
+
+    .navbar .nav-right a {
+        color: #fff;
+        margin-left: 10px;
+        text-decoration: none;
+    }
+
+        .navbar .nav-right a:hover {
+            text-decoration: underline;
+        }
+
+/* Content spacing */
+.content {
+    padding: 0px;
+}
+
+
+
+
+
+

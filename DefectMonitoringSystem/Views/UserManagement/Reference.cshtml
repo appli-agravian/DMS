@@ -1,0 +1,139 @@
+﻿<link rel="stylesheet" href="~/css/Reference.css" />
+
+<div class="card">
+
+    <!-- HEADER -->
+    <div class="header-wrapper">
+
+        <!-- LEFT HEADER -->
+        <div class="header-left">
+            <button class="header-btn active-header"
+                    onclick="setHeader(this)"
+                    data-target="inline">
+                In-Line NG Machine Database
+            </button>
+
+            <div class="tab-container">
+                <button class="tab-btn active" onclick="setActive(this)">MINI</button>
+                <button class="tab-btn" onclick="setActive(this)">A3</button>
+                <button class="tab-btn" onclick="setActive(this)">P-Touch</button>
+                <button class="tab-btn" onclick="setActive(this)">Toner</button>
+            </div>
+        </div>
+
+        <!-- RIGHT HEADER -->
+        <div class="header-right">
+            <button class="header-btn"
+                    onclick="setHeader(this)"
+                    data-target="pcb">
+                NG Main PCB Database
+            </button>
+        </div>
+
+    </div>
+
+    <!-- TABLE BODY -->
+    <div class="card-body p-0">
+
+        <!-- INLINE TABLE -->
+        <div id="table-inline">
+
+            <table class="table table-bordered text-center mb-0">
+                <thead>
+                    <tr>
+                        <th>MODEL CODE</th>
+                        <th>MODEL NAME</th>
+                        <th>CATEGORY</th>
+                        <th>DEFECT</th>
+                        <th>CATEGORY LOCATION</th>
+                        <th>SERIES</th>
+                        <th>LINE</th>
+                        <th>PROCESS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M-001</td>
+                        <td>Printer A</td>
+                        <td>Main</td>
+                        <td>No Power</td>
+                        <td>PCB</td>
+                        <td>A3</td>
+                        <td>Line 1</td>
+                        <td>Soldering</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <!-- PCB TABLE -->
+        <div id="table-pcb" style="display:none;">
+
+            <table class="table table-bordered text-center mb-0">
+                <thead>
+                    <tr>
+                        <th>SERIAL</th>
+                        <th>MODEL NAME</th>
+                        <th>PART CODE</th>
+                        <th>PART CODE NAME</th>
+                        <th>BOARD TYPE</th>
+                        <th>MODEL</th>
+                        <th>COMBO IC MODEL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>S-001</td>
+                        <td>Printer B</td>
+                        <td>P-100</td>
+                        <td>Main Board</td>
+                        <td>Type A</td>
+                        <td>X5</td>
+                        <td>IC-88</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- YOUR TABLES HERE -->
+<!-- YOUR HTML ABOVE -->
+
+<script>
+    function setActive(btn) {
+        document.querySelectorAll('.tab-btn')
+            .forEach(b => b.classList.remove('active'));
+
+        btn.classList.add('active');
+    }
+
+    function setHeader(btn) {
+
+        document.querySelectorAll('.header-btn')
+            .forEach(b => b.classList.remove('active-header'));
+
+        btn.classList.add('active-header');
+
+        const text = btn.innerText.trim();
+
+        const inline = document.getElementById("table-inline");
+        const pcb = document.getElementById("table-pcb");
+        const tabs = document.querySelector(".tab-container");
+
+        if (!inline || !pcb) return;
+
+        if (text.includes("In-Line")) {
+            inline.style.display = "block";
+            pcb.style.display = "none";
+            tabs.style.display = "flex";
+        } else {
+            inline.style.display = "none";
+            pcb.style.display = "block";
+            tabs.style.display = "flex";
+        }
+    }
+</script>

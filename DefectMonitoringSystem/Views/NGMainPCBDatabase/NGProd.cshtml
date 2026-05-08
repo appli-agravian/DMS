@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/NGProd.css" />
+
+<table class="header-table">
+
+    <tr>
+
+        <!-- MPCB SERIAL -->
+        <td class="cell-label">MPCB SERIAL:</td>
+
+        <td class="cell-input">
+            <form method="post" asp-action="SearchMPCBSerial">
+                <input type="text" name="mpcbSerial" placeholder="Enter Serial..." />
+                <button type="submit" class="btn-search">SEARCH</button>
+            </form>
+        </td>
+
+        <!-- UPDATE MCB DATA -->
+        <td class="cell-btn">
+            <form method="post" asp-action="UpdateMCBData">
+                <button type="submit" class="btn-update">UPDATE MCB DATA</button>
+            </form>
+        </td>
+
+        <!-- UPLOAD PROD INPUT QTY -->
+        <td class="cell-btn">
+            <form method="post" asp-action="UploadProdInputQty">
+                <button type="submit" class="btn-upload">UPLOAD PROD INPUT QTY</button>
+            </form>
+        </td>
+
+        <!-- EXPORT -->
+        <td class="cell-btn">
+            <form method="post" asp-action="ExportData">
+                <button type="submit" class="btn-export">EXPORT</button>
+            </form>
+        </td>
+
+    </tr>
+
+</table>

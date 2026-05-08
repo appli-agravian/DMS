@@ -1,0 +1,137 @@
+﻿
+
+.card.mini-header {
+    border-radius: 0;
+    border: 1px solid #6f6f6f;
+    background-color: #0f2b3e; /* Dark Blue Background */
+    padding: 8px 12px;
+    color: #ffffff; /* default text color white */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+/* GLOBAL */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.card {
+    border-radius: 0 !important;
+    border: 0px solid #6f6f6f;
+    /* 👇 adds spacing inside all sides */
+    padding-right: 0px;
+}
+
+/* HEADER WRAPPER */
+.header-wrapper {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #6f6f6f;
+    align-items: stretch; /* 👈 IMPORTANT */
+}
+
+/* LEFT HEADER */
+.header-left {
+    width: 60%;
+    background: #b3b3b3;
+    border-right: 2px solid #6f6f6f;
+    display: flex;
+    flex-direction: column;
+}
+
+/* RIGHT HEADER */
+.header-right {
+    width: 40%;
+    background: #b3b3b3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HEADER BUTTON */
+.header-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 18px 2px;
+    cursor: pointer;
+}
+
+    .header-btn.active-header {
+        background: #ffffff;
+        color: #000;
+    }
+
+/* TAB CONTAINER (SUB HEADER STYLE) */
+.tab-container {
+    display: flex;
+    width: 100%;
+    background: #bfc7cf;
+    border-top: 2px solid #7a7a7a;
+    border-bottom: 1px solid #7a7a7a;
+    height: 30px;
+}
+
+/* TAB BUTTONS */
+.tab-btn {
+    flex: 1; /* 👈 THIS FILLS THE WHOLE BAR */
+    background: transparent;
+    border: none;
+    border-right: 1px solid #7a7a7a;
+    padding: 4px 16px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+}
+
+    .tab-btn:last-child {
+        border-right: none;
+    }
+
+    /* HOVER */
+    .tab-btn:hover {
+        background: rgba(255,255,255,0.35);
+    }
+
+    .tab-btn.active {
+        color: red;
+        background: #ffffff;
+    }
+
+/* TABLE */
+.table {
+    width: 100%;
+    table-layout: auto; /* allows proper fill */
+}
+
+    .table th {
+        background: #2a2a2a !important;
+        color: white;
+        padding:  6px 6px;
+        line-height: 1.4;
+    }
+
+    .table td {
+        padding: 6px 6px;
+        border: 1px solid #bcbcbc;
+    }
+    .table tr {
+        height: 30px;
+    }
+
+.card-body {
+    padding: 0 !important;
+}
+.table-pcb {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.table-inline{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}

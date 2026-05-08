@@ -1,0 +1,208 @@
+﻿/* ===== Offcanvas Sidebar ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: #2A528D;
+    color: white;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+    /* Show state */
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+/* ===== Sidebar Header ===== */
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 20px 10px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    flex-shrink: 0;
+    background: #ffffff;
+}
+
+    .sidebar-header h2 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 500;
+        text-align: left;
+        border-bottom: none;
+        padding: 0;
+    }
+
+/*.sidebar-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 8px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}*/
+
+/*    .sidebar-close:hover {
+        opacity: 1;
+    }*/
+
+.sidebar-user-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ===== Scrollable Content ===== */
+.sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 0 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #7a9bcb #2A528D;
+}
+
+    .sidebar-content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .sidebar-content::-webkit-scrollbar-track {
+        background: #2A528D;
+    }
+
+    .sidebar-content::-webkit-scrollbar-thumb {
+        background-color: #7a9bcb;
+        border-radius: 3px;
+    }
+
+/* ===== Navigation Lists ===== */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .sidebar ul li {
+        padding: 0 15px;
+        margin: 8px 10px;
+    }
+
+        /* Main menu links - CENTERED text */
+        .sidebar ul li a {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 10px;
+            text-align: center; /* <-- CENTERED NAMES */
+            text-decoration: none;
+            color: #ecf0f1;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 14px;
+            transition: all 0.25s ease;
+        }
+
+            /* YELLOW HOVER EFFECT */
+            .sidebar ul li a:hover {
+                color: #2A528D; /* dark blue text for contrast */
+                background: #ffc107; /* yellow background */
+                font-weight: 500;
+            }
+
+/* ===== Submenu ===== */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 10px;
+}
+
+.menu-item.open .submenu {
+    max-height: 500px;
+}
+
+.submenu li a {
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 13px;
+    border-radius: 6px;
+    margin-top: 4px;
+    text-align: center; /* submenu items also centered */
+}
+
+    /* Submenu hover - also yellow */
+    .submenu li a:hover {
+        background: #ffc107;
+        color: #2A528D;
+    }
+
+/* ===== Backdrop Overlay ===== */
+.offcanvas-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+    .offcanvas-backdrop.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+/* ===== Hamburger Toggle Button ===== */
+.sidebar-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+    .sidebar-toggle .hamburger-line {
+        width: 100%;
+        height: 3px;
+        background-color: #FFFFFF;
+        border-radius: 2px;
+    }
+
+.sidebar-footer {
+    flex-shrink: 0;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 14px;
+    color: #ecf0f1;
+    background: rgba(0,0,0,0.1);
+}
+
+/* ===== Navbar Left Adjustment ===== */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+    .nav-left h3 {
+        margin: 0;
+    }
+
+/* ===== Main Content Adjustment ===== */
+.main-content {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 60px;
+    transition: margin-left 0.3s ease;
+}
