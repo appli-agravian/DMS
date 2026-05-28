@@ -42,7 +42,7 @@
             this.webView21.Location = new System.Drawing.Point(0, 0);
             this.webView21.Name = "webView21";
             this.webView21.Size = new System.Drawing.Size(800, 450);
-            this.webView21.Source = new System.Uri("http://apbiphbpsts01:9020/", System.UriKind.Absolute);
+            this.webView21.Source = new System.Uri("https://localhost:7199/", System.UriKind.Absolute);
             this.webView21.TabIndex = 0;
             this.webView21.ZoomFactor = 1D;
             // 

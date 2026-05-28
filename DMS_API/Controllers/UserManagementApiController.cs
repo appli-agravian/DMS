@@ -135,4 +135,25 @@ public class UserManagementApiController : ControllerBase
         await _context.SaveChangesAsync();
         return Ok(new { success = true, id = user.Id });
     }
+
+    [HttpDelete("delete-user/{id}")]
+    public async Task<IActionResult> DeleteUser(int id)
+    {
+        var user = await _context.Access.FirstOrDefaultAsync(u => u.Id == id);
+
+        if (user == null)
+            return NotFound(new { message = "User not found" });
+
+        // Optional but smart: delete related permissions first
+        var permissions = _context.UserModulePermissions
+            .Where(p => p.UserId == id);
+
+        _context.UserModulePermissions.RemoveRange(permissions);
+
+        _context.Access.Remove(user);
+
+        await _context.SaveChangesAsync();
+
+        return Ok(new { success = true });
+    }
 }

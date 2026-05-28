@@ -2,6 +2,8 @@ wwwroot\animations\loader.json
 wwwroot\css\Access.css
 wwwroot\css\Email.css
 wwwroot\css\InLineNG_Database.css
+wwwroot\css\InLineNG_Graph.css
+wwwroot\css\InLineNG_OverAllGraph.css
 wwwroot\css\Navbar.css
 wwwroot\css\NGGraph.css
 wwwroot\css\NGMain.css

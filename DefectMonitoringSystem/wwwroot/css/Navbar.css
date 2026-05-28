@@ -1,4 +1,3 @@
-/* Navbar base styles - ensure proper z-index and positioning */
 .navbar {
     position: fixed;
     top: 0;
@@ -11,19 +10,13 @@
     align-items: center;
     padding: 0 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    z-index: 1030; /* Below offcanvas (1050) and backdrop (1040) */
+    z-index: 1030;
     box-sizing: border-box;
 }
 
-/* Ensure body has no horizontal overflow */
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
 .nav-title {
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #FFFFFF;
     text-decoration: none;
     margin: 0;
@@ -34,6 +27,7 @@ body {
     .nav-title:hover {
         color: #2A528D;
     }
+
     .nav-title:active {
         transform: scale(0.98);
     }

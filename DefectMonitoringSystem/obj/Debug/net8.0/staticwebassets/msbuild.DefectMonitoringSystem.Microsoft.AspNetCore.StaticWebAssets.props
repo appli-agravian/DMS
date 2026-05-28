@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qyjtb6abin</Fingerprint>
-      <Integrity>rtJfVCWmK9fo3eZW+2HbFlEC5ZfLhDx3NgouE0ReUXw=</Integrity>
+      <Fingerprint>rsnv6hjh41</Fingerprint>
+      <Integrity>O6Tt9Ck0nMFvsLkQ/DIKuhB1UuKGI7zghjkRb4Q1xYQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Access.css'))</OriginalItemSpec>
@@ -66,11 +66,47 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zfpjdnymwo</Fingerprint>
-      <Integrity>j5AZ8uB69TQFdi/3cfFp90HkDzXs4Sz9ULsawW2cSAM=</Integrity>
+      <Fingerprint>d5rvn50lak</Fingerprint>
+      <Integrity>MYYO+VPYP2dHlXRTnJj5d63d/EROmUyA3JhyQmU/btU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\InLineNG_Database.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\InLineNG_Graph.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DefectMonitoringSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DefectMonitoringSystem</BasePath>
+      <RelativePath>css/InLineNG_Graph.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>lfrw35zr3o</Fingerprint>
+      <Integrity>4VmMWlh/G5NOjFTh2UBOxqVSxoNpwqVZNYKkUEIRBig=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\InLineNG_Graph.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\InLineNG_OverAllGraph.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DefectMonitoringSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DefectMonitoringSystem</BasePath>
+      <RelativePath>css/InLineNG_OverAllGraph.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>jofpcq4mzw</Fingerprint>
+      <Integrity>ow+zeFg2lucMiiSGAL2fVHguPFTZYDxTgY1JFCRzpkk=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\InLineNG_OverAllGraph.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Navbar.css'))">
       <SourceType>Package</SourceType>
@@ -84,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>sftpx0dxdx</Fingerprint>
-      <Integrity>SDKbV+mMe/15VdpVfxNwmtIgPlIxFIB/DpDL7NGTHn8=</Integrity>
+      <Fingerprint>8xx4zn94ai</Fingerprint>
+      <Integrity>RCxUN/5WjbDPg1nUDCOvolCDkl/+2vCg2dqzWY0sGDg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Navbar.css'))</OriginalItemSpec>
@@ -210,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>mv6ho08g4s</Fingerprint>
-      <Integrity>EtVzx9glaPB9TlS4Q7eGqqQoCB/vnCHAxGl8vt6jT0Q=</Integrity>
+      <Fingerprint>chf4lr3stf</Fingerprint>
+      <Integrity>YNghT/ek8Mcc+vXnXW8uliH3G+hmou3zfiCGzbjOuFg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -318,8 +354,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>3zv3zcudk1</Fingerprint>
-      <Integrity>YWingi8E7lqZLJX1r7Oim4k24ZjZrRhTFQ/+DTKIfVU=</Integrity>
+      <Fingerprint>tprqysa8mw</Fingerprint>
+      <Integrity>L/+MhxiRoav3vmBqKKpOsXZsot5TXDbbyVUI00N3Xno=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Access.js'))</OriginalItemSpec>
@@ -372,8 +408,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qkb92syipf</Fingerprint>
-      <Integrity>JotGERqqpNv1xYgiILgYMz8GD/JNGpU80vT8Bzq158s=</Integrity>
+      <Fingerprint>wa1wamdl31</Fingerprint>
+      <Integrity>mEBXMOV45iQCG4F34cAkQJgSqixxrIyAFQoCr9QZR6c=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\InLineNG_Database.js'))</OriginalItemSpec>

@@ -1,17 +1,22 @@
-﻿
-.custom-container {
-    padding: 10px;
-    background-color: #17263B;
-    margin: 0;
-    max-width: 1825px;
-    margin: 20px auto;
-    padding: 10px;
-    border-radius: 15px;
+﻿.page-container {
+    background: #2A528D;
+    width: calc(100% - 20px);
+    min-height: calc(100vh - 20px);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
     .custom-container p {
         margin: 0;
     }
+
+.page-title {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+}
 
 .table-wrapper {
     background: #ffff;

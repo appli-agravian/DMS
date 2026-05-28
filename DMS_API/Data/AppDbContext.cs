@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DefectMonitoringSystem.Models;
+using DMS_API.Models.DTOs;
 
 namespace DefectMonitoringSystem.Data
 {
@@ -11,6 +12,13 @@ namespace DefectMonitoringSystem.Data
         public DbSet<Module> Modules { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserModulePermission> UserModulePermissions { get; set; }
+
+        public DbSet<InLineNgMachine> InLineNgMachines { get; set; }
+
+        public DbSet<A3Data> A3Datas { get; set; }
+        public DbSet<MiniData> MiniDatas { get; set; }
+        public DbSet<PTouchData> PTouchDatas { get; set; }
+        public DbSet<TonerData> TonerDatas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,6 +1,19 @@
 [
   {
-    "Name": "DMSWinforms",
+    "Name": "API_WEB",
+    "Projects": [
+      {
+        "Path": "DefectMonitoringSystem.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\DMS_API\\DMS_API.csproj",
+        "Action": "Start"
+      }
+    ]
+  },
+  {
+    "Name": "WIN_WEB_API",
     "Projects": [
       {
         "Path": "DefectMonitoringSystem.csproj",
@@ -12,19 +25,6 @@
       },
       {
         "Path": "..\\DMSystemWinform\\DMSystemWinform.csproj",
-        "Action": "Start"
-      }
-    ]
-  },
-  {
-    "Name": "API_WEB",
-    "Projects": [
-      {
-        "Path": "DefectMonitoringSystem.csproj",
-        "Action": "Start"
-      },
-      {
-        "Path": "..\\DMS_API\\DMS_API.csproj",
         "Action": "Start"
       }
     ]

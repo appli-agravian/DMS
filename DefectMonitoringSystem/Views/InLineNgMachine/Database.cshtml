@@ -1,150 +1,907 @@
 ﻿@{
-    ViewData["Title"] = "Database";
+    ViewData["Title"] = "IN LINE NG MACHINE DATABASE";
 }
-
-<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/css/InLineNG_Database.css" />
 
-<div class="main-content">
+<div class="page-container">
+    <h2 class="page-title">@ViewData["Title"]</h2>
+    <div class="spacer" style="height:10px;"></div>
 
-    <div class="page-container">
+    <div class="action-bar card">
+        <div class="actions">
+            <button type="button" id="btnMachineIn"      class="top-button btn-warning">Machine In</button>
+            <button type="button" id="btnFinishAnalysis" class="top-button btn-success">Finish Analysis</button>
+            <button type="button" id="btnReturnProd"     class="top-button btn-purple">Return To Production</button>
+            <button type="button" id="btnSubParts"       class="top-button btn-primary">Sub Parts Analysis Completed</button>
+        </div>
+    </div>
+    <div class="spacer" style="height:10px;"></div>
 
-        <div class="table-wrapper">
-            <div class="table-responsive">
-                <table id="userTable" class="table table-striped table-bordered align-middle">
-                    <thead class="table-dark">
-                        <tr>
-                            <th rowspan="2">#</th>
-                            <th rowspan="2">PRT PIC</th>
-                            <th rowspan="2">Line</th>
-                            <th rowspan="2">Process</th>
-                            <th rowspan="2">Machine Serial</th>
-                            <th rowspan="2">Model Code</th>
-                            <th rowspan="2">Model Name</th>
-                            <th rowspan="2">Phenomenon</th>
-                            <th rowspan="2">Production Date</th>
-                            <th rowspan="2">Date Received</th>
-                            <th rowspan="2">Time Received</th>
-                            <th rowspan="2"># Days Delay</th>
-                            <th rowspan="2">Delay/Priority</th>
-                            <th colspan="6" class="text-center">Machine Analysis Complete</th>
-                            <th rowspan="2">Series</th>
-                            <th rowspan="2">Defect Field</th>
-                            <th rowspan="2">Defect Category</th>
-                            <th rowspan="2">Lot/Serial No.</th>
-                            <th rowspan="2">PartCode</th>
-                            <th rowspan="2">Cavity Number</th>
-                            <th rowspan="2">Received By</th>
-                            <th rowspan="2">Returned By</th>
-                            <th rowspan="2">Board Type</th>
-                            <th rowspan="2">PCB Defect Location</th>
-                            <th rowspan="2">Sub-Category</th>
-                            <th rowspan="2">IN</th>
-                            <th rowspan="2">Alarm</th>
-                            <th rowspan="2">Linestop Related</th>
-                            <th rowspan="2">Analysis Time</th>
-                            <th rowspan="2">Analysis Time Category</th>
-                            <th rowspan="2">Remarks</th>
-                            <th colspan="6" class="text-center">Sub Unit Assembly Progress</th>
-                            <th rowspan="2">Machine returned to Prod</th>
-                            <th rowspan="2">Remarks</th>
-                            <th rowspan="2">New or Existing</th>
-                            <th rowspan="2">NS/DS</th>
-                            <th rowspan="2">Call out Phenomenon</th>
-                            <th rowspan="2">Components/Parts</th>
-                            <th rowspan="2">Mechanism Group</th>
-                            <th rowspan="2">Mechanism</th>
-                            <th rowspan="2">Connectors</th>
-                            <th rowspan="2">Defect Category</th>
-                        </tr>
-                        <tr>
-                            <!-- Machine Analysis sub-headers (6 cols) -->
-                            <th>Analyzed By</th>
-                            <th>Date Finish Analysis</th>
-                            <th>Time Finish Analysis</th>
-                            <th>Cause</th>
-                            <th>Audit Findings</th>
-                            <th>Finish Analysis Date &amp; Time</th>
-                            <!-- Sub Unit sub-headers (6 cols) -->
-                            <th>Analyzed By</th>
-                            <th>Sub Unit Assy/Sub Part</th>
-                            <th>Date Finish Analysis</th>
-                            <th>Time Finish Analysis</th>
-                            <th>Cause</th>
-                            <th>Finish Analysis Date &amp; Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+    <div class="table-wrapper">
+        <div class="table-responsive">
+            <table id="userTable" class="table table-striped table-bordered align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Model</th>
+                        <th>ARF Number</th>
+                        <th>Month</th>
+						<th>Defect Illustration</th>
+                        <th>PRT PIC</th>
+                        <th>Line</th>
+                        <th>Process</th>
+                        <th>Machine Serial</th>
+                        <th>Model Code</th>
+                        <th>Model Name</th>
+                        <th>Phenomenon</th>
+                        <th>Production Date</th>
+                        <th>Date Received</th>
+                        <th>Time Received</th>
+                        <th>Days Delay</th>
+                        <th>Delay/Priority</th>
+                        <th>Analyzed By</th>
+                        <th>Date Finish Analysis</th>
+                        <th>Time Finish Analysis</th>
+                        <th>Cause</th>
+                        <th>Audit Findings</th>
+                        <th>Finish Analysis DateTime</th>
+                        <th>Series</th>
+                        <th>Defect Field</th>
+                        <th>Defect Category</th>
+                        <th>Lot/Serial No.</th>
+                        <th>Part Code</th>
+                        <th>Cavity Number</th>
+                        <th>Received By</th>
+                        <th>Returned By</th>
+                        <th>Board Type</th>
+                        <th>PCB Defect Location</th>
+                        <th>Sub-Category</th>
+                        <th>IN</th>
+                        <th>Alarm</th>
+                        <th>Linestop Related</th>
+                        <th>Analysis Time</th>
+                        <th>Analysis Time Category</th>
+                        <th>Remarks</th>
+                        <th>Analyzed By 2</th>
+                        <th>Sub Unit Assy/Sub Part</th>
+                        <th>Date Finish Analysis 2</th>
+                        <th>Time Finish Analysis 2</th>
+                        <th>Cause 2</th>
+                        <th>Finish Analysis DateTime 2</th>
+                        <th>Machine Returned to Prod</th>
+                        <th>Remarks 2</th>
+                        <th>New or Existing</th>
+                        <th>NS/DS</th>
+                        <th>Call Out Phenomenon</th>
+                        <th>Components/Parts</th>
+                        <th>Mechanism Group</th>
+                        <th>Mechanism</th>
+                        <th>Connectors</th>
+                        <th>Defect Category Final</th>
+                        <th>Qty</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@* ==================== END PAGE CONTENT ====================  *@
+
+
+
+@* ============================================================
+     MODALS — always at root level, never nested inside page divs
+     ============================================================  *@
+
+
+@* MODAL: MACHINE IN  *@
+
+<div class="modal fade" id="MachineIn" tabindex="-1"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <form id="machineInForm">
+
+                <div class="modal-header machinein-header">
+                    <h5 class="modal-title">MACHINE IN</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- Model & Month -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">MODEL</label>
+                            <select id="model" class="form-select" required>
+                                <option value="">-- Select Model --</option>
+                                <option value="A3">A3</option>
+                                <option value="Mini">Mini</option>
+                                <option value="Toner">Toner</option>
+                                <option value="PTouch">PTouch</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">MONTH</label>
+                            <select id="month" class="form-select" required>
+                                <option value="">-- Select Month --</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- ARF Number & Endorsed By -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">ARF NUMBER</label>
+                            <input type="text" id="arfnumber" class="form-control" readonly required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">ENDORSED BY</label>
+                            <input type="text" id="endorsedBy" class="form-control text-uppercase"
+                                   oninput="this.value = this.value.toUpperCase()" required />
+                        </div>
+                    </div>
+
+                    <!-- Defect Illustration -->
+                    <div class="mb-3">
+                        <label class="form-label">DEFECT ILLUSTRATION</label>
+                        <input type="file" id="uploadedFile" class="form-control" required />
+                        <div id="filePreview" class="mt-2"></div>
+                    </div>
+
+                    <!-- Line & Process -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">LINE</label>
+                            <select id="line" class="form-select" required>
+                                <option value="">-- Select Line --</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">PROCESS</label>
+                            <select id="process" class="form-select" required>
+                                <option value="">-- Select Process --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Machine Serial & PITX Serial -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">MACHINE SERIAL</label>
+                            <input type="text" id="machineSerial" class="form-control text-uppercase"
+                                   oninput="this.value = this.value.toUpperCase()" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">PITX SERIAL</label>
+                            <input type="text" id="pitxSerial" class="form-control text-uppercase"
+                                   oninput="this.value = this.value.toUpperCase()" required />
+                        </div>
+                    </div>
+
+                    <!-- Series -->
+                    <div class="mb-3">
+                        <label class="form-label">SERIES</label>
+                        <select id="series" class="form-select" required>
+                            <option value="">-- Select Series --</option>
+                        </select>
+                    </div>
+
+                    <!-- PITX Link & Model Code -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">PITX LINK</label>
+                            <input type="text" id="pitxLink" class="form-control text-uppercase"
+                                   oninput="this.value = this.value.toUpperCase()" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">MODEL CODE</label>
+                            <select id="modelCode" class="form-select" required>
+                                <option value="">-- Select Model Code --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Model Name & Phenomenon -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">MODEL NAME</label>
+                            <select id="modelName" class="form-select" required>
+                                <option value="">-- Select Model Name --</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">PHENOMENON</label>
+                            <select id="phenomenon" class="form-select" required>
+                                <option value="">-- Select Phenomenon --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Prod Date & Date Time -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">PROD. DATE</label>
+                            <input type="date" id="prodDate" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">DATE &amp; TIME</label>
+                            <input type="datetime-local" id="dateTime" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <!-- Received By (DE PIC) -->
+                    <div class="mb-3">
+                        <label class="form-label">RECEIVED BY (DE PIC)</label>
+                        <select id="receivedBy" class="form-select" required>
+                            <option value="">-- Select DE PIC --</option>
+                        </select>
+                    </div>
+
+                </div> <!-- modal-body -->
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="saveMachineIn">SAVE</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+                </div>
+
+            </form>
+
+        </div> <!-- modal-content -->
+    </div> <!-- modal-dialog -->
+</div> <!-- MachineIn modal -->
+
+
+<!-- IMAGE PREVIEW MODAL -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Defect Illustration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" style="max-width: 100%; max-height: 80vh;" />
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="header-container">
 
-            @* <div class="topbar"> *@
-            @*     <div class="topbar-tabs"> *@
-            @*         <button type="TopButton" class="tab" id="Button"> *@
-            @*             <span>MINI DB</span> *@
-            @*         </button> *@
 
-            @*         <button type="TopButton" id="graph_btn" class="tab"> *@
-            @*             <span>GRAPH</span> *@
-            @*         </button> *@
+@* MODAL: FINISH ANALYSIS — SELECTION  *@
+<div class="modal fade" id="modalSelect" tabindex="-1"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header finish-analysis-header">
+                <h5 class="modal-title">FINISH ANALYSIS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="fw-bold">Kindly Select:</p>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="analysisOption"
+                           id="optDoneAnalysis" value="done" />
+                    <label class="form-check-label" for="optDoneAnalysis">
+                        Done Machine Analysis, Identified rootcause
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="analysisOption"
+                           id="optSubUnit" value="subunit" />
+                    <label class="form-check-label" for="optSubUnit">
+                        Sub Unit Assembly/Sub-Parts Analysis is On Going
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-            @*         <button type="TopButton" id="overallgraph_btn" class="tab"> *@
-            @*             <span>OVERALLGRAPH</span> *@
-            @*         </button> *@
-            @*     </div> *@
+<div class="modal fade" id="modalMachineReturn" tabindex="-1"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header machine-return-header">
+                <h5 class="modal-title">MACHINE FOR RETURN (Done Analysis)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <!-- ← opens ONCE, stays open for ALL fields -->
+
+                <div class="mb-3">
+                    <label class="form-label">MODEL</label>
+                    <input type="text" id="mr_model" class="form-control" readonly />
+                </div>
+
+                <div class="row mb-3">
+                    <!-- ← was floating OUTSIDE body before -->
+                    <div class="col">
+                        <label class="form-label">MACHINE SERIAL</label>
+                        <input type="text" id="mr_machineSerial" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">ANALYZE BY</label>
+                        <select id="mr_analyzeBy" class="form-select">
+                            <option value="">-- Select DE PIC --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">PHENOMENON</label>
+                        <input type="text" id="mr_phenomenon" class="form-control" readonly />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">RECEIVED TIMESTAMP</label>
+                        <input type="datetime-local" id="mr_receivedTimestamp" class="form-control" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">LINE</label>
+                        <input type="text" id="mr_line" class="form-control" readonly />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">PROCESS</label>
+                        <input type="text" id="mr_process" class="form-control" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">MODEL CODE</label>
+                        <input type="text" id="mr_modelCode" class="form-control" readonly />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">MODEL NAME</label>
+                        <input type="text" id="mr_modelName" class="form-control" readonly />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">CAUSE</label>
+                    <input type="text" id="mr_cause" class="form-control"
+                           placeholder="Identified root cause ..." />
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">FIELD</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="mr_fieldElectrical" />
+                            <label class="form-check-label" for="mr_fieldElectrical">ELECTRICAL</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="mr_fieldMechanical" />
+                            <label class="form-check-label" for="mr_fieldMechanical">MECHANICAL</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">CATEGORY</label>
+                        <select id="mr_category" class="form-select">
+                            <option value="">-- Select Category --</option>
+                        </select>
+                    </div>
+                </div>  <!-- ← closes row -->
+
+                <div class="mb-3">
+                    <label class="form-label">Have Lot/Serial</label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mr_haveLotSerial" id="mr_lotSerialNo" value="No" />
+                            <label class="form-check-label" for="mr_lotSerialNo">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mr_haveLotSerial" id="mr_lotSerialYes" value="Yes" />
+                            <label class="form-check-label" for="mr_lotSerialYes">Yes</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">Lot/Serial No.</label>
+                        <input type="text" id="mr_lotSerialNumber" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Part Code</label>
+                        <input type="text" id="mr_partCode" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">Sub-Category</label>
+                        <input type="text" id="mr_subCategory" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Findings</label>
+                        <input type="text" id="mr_findings" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">Audit Date</label>
+                        <input type="date" id="mr_auditDate" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Audit Time</label>
+                        <input type="time" id="mr_auditTime" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">RETURNED BY</label>
+                        <select id="mr_returnedBy" class="form-select">
+                            <option value="">-- Select DE PIC --</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">FINISH ANALYSIS TIMESTAMP</label>
+                        <input type="datetime-local" id="mr_finishTimestamp" class="form-control" />
+                    </div>
+                </div>
+
+            </div>  <!-- ← closes .modal-body -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSaveMachineReturn">SAVE</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+            </div>
+
+        </div>  <!-- ← closes .modal-content -->
+    </div>
+</div>
+
+@* MODAL: MACHINE OUT  *@
+<div class="modal fade" id="modalMachineOut" tabindex="-1"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header machine-out-header">
+                <h5 class="modal-title">MACHINE OUT</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">RECEIVED TIME</label>
+                        <input type="datetime-local" id="mo_receivedTime" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">ANALYSED BY</label>
+                        <input type="text" id="mo_analysedBy" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">MACHINE SERIAL</label>
+                        <input type="text" id="mo_machineSerial" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">MODEL CODE</label>
+                        <input type="text" id="mo_modelCode" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">MODEL NAME</label>
+                        <input type="text" id="mo_modelName" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">PHENOMENON</label>
+                        <input type="text" id="mo_phenomenon" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">CAUSE</label>
+                    <input type="text" id="mo_cause" class="form-control" />
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">FIELD</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="mo_field"
+                                   id="mo_fieldElectrical" value="Electrical" />
+                            <label class="form-check-label" for="mo_fieldElectrical">Electrical</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="mo_field"
+                                   id="mo_fieldMechanical" value="Mechanical" />
+                            <label class="form-check-label" for="mo_fieldMechanical">Mechanical</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">CATEGORY</label>
+                        <input type="text" id="mo_category" class="form-control" />
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="condition-header">
+                    <h5 class="condition-title">CONDITION</h5>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Have Lot/Serial</label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mo_haveLotSerial"
+                                   id="mo_lotSerialNo" value="No" />
+                            <label class="form-check-label" for="mo_lotSerialNo">No</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mo_haveLotSerial"
+                                   id="mo_lotSerialYes" value="Yes" />
+                            <label class="form-check-label" for="mo_lotSerialYes">Yes</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">MPCB Location</label>
+                        <input type="text" id="mo_mpcbLocation" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Lot/Serial No.</label>
+                        <input type="text" id="mo_lotSerialNumber" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">Part Code</label>
+                        <input type="text" id="mo_partCode" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Sub-Category</label>
+                        <input type="text" id="mo_subCategory" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">QTY no.</label>
+                        <input type="number" id="mo_qty" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">In-Line Check?</label>
+                        <select id="mo_inlineCheck" class="form-select">
+                            <option value="">-- Select --</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">Input Audit Time</label>
+                        <input type="time" id="mo_auditTime" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Process</label>
+                        <input type="text" id="mo_process" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Findings</label>
+                        <input type="text" id="mo_findings" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Audit Date</label>
+                        <input type="date" id="mo_auditDate" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Linestop Related?</label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mo_linestop"
+                                   id="mo_linestopNo" value="No" />
+                            <label class="form-check-label" for="mo_linestopNo">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mo_linestop"
+                                   id="mo_linestopYes" value="Yes" />
+                            <label class="form-check-label" for="mo_linestopYes">Yes</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">RETURNED DATE &amp; TIME</label>
+                        <input type="datetime-local" id="mo_returnedDateTime" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">RETURNED BY</label>
+                        <input type="text" id="mo_returnedBy" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">ANALYSIS TIME</label>
+                        <input type="datetime-local" id="mo_analysisTime" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSaveMachineOut">UPDATE</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------- SUB PARTS ANALYSIS COMPLETED MODAL ------------------->
+<div class="modal fade" id="modalSubPartsCompleted" tabindex="-1"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header subparts-completed-header">
+        <h5 class="modal-title">UNIT ASSEMBLY / SUB-PARTS ANALYSIS</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted small">
+          NOTE: Control Number is first column (“A”) in Machine Database Sheet. (Ex. 001)
+        </p>
+
+        <!-- CONTROL NUMBER -->
+        <div class="mb-3">
+          <label class="form-label">CONTROL NUMBER</label>
+          <input type="text" id="sp_controlNumber" class="form-control" placeholder="001" />
+        </div>
+
+        <h6 class="fw-bold">MACHINE DETAILS</h6>
+
+        <!-- Received Time & Time Analysis End -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Received Time</label>
+            <input type="datetime-local" id="sp_receivedTime" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label">Time Analysis End</label>
+            <input type="datetime-local" id="sp_timeAnalysisEnd" class="form-control" />
+          </div>
+        </div>
+
+        <!-- Analysis Time & Analyzed by -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Analysis Time</label>
+            <input type="datetime-local" id="sp_analysisTime" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label">Analyzed by</label>
+            <input type="text" id="sp_analyzedBy" class="form-control" />
+          </div>
+        </div>
+
+        <!-- Phenomenon & Initial Cause -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Phenomenon</label>
+            <input type="text" id="sp_phenomenon" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label">Initial Cause</label>
+            <input type="text" id="sp_initialCause" class="form-control" />
+          </div>
+        </div>
+
+        <!-- Category & Process -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Category</label>
+            <input type="text" id="sp_category" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label">Process</label>
+            <input type="text" id="sp_process" class="form-control" />
+          </div>
+        </div>
+
+        <!-- Line & Linestop Related? -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Line</label>
+            <input type="text" id="sp_line" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label">Linestop Related?</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="sp_linestop" id="sp_linestopNo" value="No">
+              <label class="form-check-label" for="sp_linestopNo">No</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="sp_linestop" id="sp_linestopYes" value="Yes">
+              <label class="form-check-label" for="sp_linestopYes">Yes</label>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <h6 class="fw-bold">Sub Unit Assembly / Sub-Parts Analysis</h6>
+
+        <!-- Analyze by (two dropdowns) -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Analyze by</label>
+            <select id="sp_analyzeByDropdown1" class="form-select">
+              <option value="">-- Select --</option>
+              <!-- Populate dynamically if needed -->
+            </select>
+          </div>
+          <div class="col">
+            <label class="form-label">&nbsp;</label>
+            <select id="sp_analyzeByDropdown2" class="form-select">
+              <option value="">-- Select --</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Defect Category (dropdown) -->
+        <div class="mb-3">
+          <label class="form-label">Defect Category</label>
+          <select id="sp_defectCategory" class="form-select">
+            <option value="">-- Select --</option>
+            <!-- Populate dynamically if needed -->
+          </select>
+        </div>
+
+        <!-- Sub Unit / Sub Part Name -->
+        <div class="mb-3">
+          <label class="form-label">Sub Unit / Sub Part Name</label>
+          <input type="text" id="sp_subUnitPartName" class="form-control" />
+        </div>
+
+        <!-- Cause -->
+        <div class="mb-3">
+          <label class="form-label">Cause</label>
+          <input type="text" id="sp_cause" class="form-control" />
+        </div>
+
+        <!-- Finish Analysis Date & Time -->
+        <div class="mb-3">
+          <label class="form-label">Finish Analysis Date &amp; Time</label>
+          <input type="datetime-local" id="sp_finishAnalysisDateTime" class="form-control" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="btnSaveSubParts">UPDATE</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mb-3">
+    <label class="form-label">MACHINE SERIAL</label>
+    <input type="text" id="sp_machineSerial" class="form-control"
+           placeholder="Scan or type machine serial..." />
+</div>
+
+
+
+@* MODAL: RETURN TO PRODUCTION  *@
+<div class="modal fade" id="ReturnToProd" tabindex="-1"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header return-header">
+                <h5 class="modal-title">RETURN TO PROD</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <label class="fw-bold text-nowrap">MACHINE SERIAL :</label>
+                    <input type="text" id="returnMachineSerial" class="form-control" />
+                    <button type="button" class="btn btn-light fw-bold" id="btnUpdateReturn">UPDATE</button>
+                </div>
+
+                <div class="border rounded p-4 mb-4">
+                    <div class="row mb-3">
+                        <div class="col-4 text-end fw-bold">PHENOMENON:</div>
+                        <div class="col-8">
+                            <input type="text" id="returnPhenomenon" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 text-end fw-bold">MODEL CODE:</div>
+                        <div class="col-8">
+                            <input type="text" id="returnModelCode" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 text-end fw-bold">MODEL NAME:</div>
+                        <div class="col-8">
+                            <input type="text" id="returnModelName" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 text-end fw-bold">CAUSE:</div>
+                        <div class="col-8">
+                            <input type="text" id="returnCause" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 text-end fw-bold">FIELD:</div>
+                        <div class="col-8">
+                            <input type="text" id="returnField" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-end fw-bold">CATEGORY:</div>
+                        <div class="col-8">
+                            <input type="text" id="returnCategory" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">RETURN TO PROD (DATE/TIME):</label>
+                    <input type="datetime-local" id="returnDateTime" class="form-control" />
+                </div>
+
+            </div>
+            @* <div class="modal-footer"> *@
+            @*     <button type="button" class="btn btn-success" id="btnSaveReturn">SAVE</button> *@
+            @*     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button> *@
             @* </div> *@
-
-            @* <div class="topbar"> *@
-            @*     <div class="topbar-tabs"> *@
-            @*         <button type="TopButton" status-machine" onclick="openModal('modalMachineIn')">MACHINE IN</button> *@
-
-            @*         <button type="TopButton" status-finish" onclick="openModal('modalSelect')">FINISH ANALYSIS</button> *@
-
-            @*         <button type="TopButton" status-return" onclick="openModal('modalReturnProd')">RETURNED TO PROD</button> *@
-
-            @*         <button type="TopButton" status-subparts" onclick="openModal('modalSubParts')">SUB PARTS ANALYSIS COMPLETED</button> *@
-            @*     </div> *@
-            @*     <button class="export-btn">EXPORT</button> *@
-            @* </div> *@
-
-        @* <div class="content-container"> *@
-        @*     <div id="graphSection" class="section-container"> *@
-        @*         <canvas id="myChart"></canvas> *@
-        @*     </div> *@
-
-        @*     <div id="overallSection" class="section-container" style="display:none;"> *@
-        @*         <div class="card shadow-sm p-3"> *@
-        @*             <h5 class="text-dark">Overall Defect Distribution</h5> *@
-        @*             <div style="height: 400px;"> *@
-        @*                 <canvas id="overallChart"></canvas> *@
-        @*             </div> *@
-        @*         </div> *@
-        @*     </div> *@
-
-            
         </div>
     </div>
 </div>
 
 
 @section Scripts {
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
-
-    <script src="~/js/InLineNG_Database.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="~/js/InLineNG_Database.js"></script>
 }
